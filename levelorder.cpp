@@ -3,7 +3,7 @@ using namespace std;
 
 class Node{
 public:
-	
+
 	int data;
 	Node*left;
 	Node*right;
@@ -54,22 +54,6 @@ Node*takeinput()
 	}
 	return root;
 }
-
-
-void kth(Node*root,int k)
-{
-    if(root==NULL)
-    {
-    	return;
-    }
-    if(k==0)
-    {
-    	cout<<root->data<<" ";
-    }
-    kth(root->left,k-1);
-    kth(root->right,k-1);
-}
-
 void print(Node*root)
 {
 	if(root==NULL)
@@ -78,10 +62,17 @@ void print(Node*root)
 	}
 	queue<Node*>q;
 	q.push(root);
-	while(q.size()!=0)
+	q.push(NULL);
+	while(q.size()>1)
 	{
 		Node*curr=q.front();
 		q.pop();
+		if(curr==NULL)
+        {
+            cout<<endl;
+            q.push(NULL);
+            continue;
+        }
 		cout<<curr->data<<" ";
 		if(curr->left!=NULL)
 		{
@@ -97,9 +88,6 @@ void print(Node*root)
 int main()
 {
 	Node*root=takeinput();
-	//print(root);
-	int k;
-	cin>>k;
-    kth(root,k);
+	print(root);
 }
 // 4 2 6 1 3 5 7 -1 -1 -1 -1 -1 -1 -1 -1
