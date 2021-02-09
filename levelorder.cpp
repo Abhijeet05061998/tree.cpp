@@ -67,22 +67,22 @@ void print(Node*root)
 	{
 		Node*curr=q.front();
 		q.pop();
-		if(curr==NULL)
+	if(curr==NULL)
         {
             cout<<endl;
             q.push(NULL);
             continue;
         }
-		cout<<curr->data<<" ";
-		if(curr->left!=NULL)
-		{
-			q.push(curr->left);
-		}
-		if(curr->right!=NULL)
-		{
-			q.push(curr->right);
-		}
+	cout<<curr->data<<" ";
+	if(curr->left!=NULL)
+	{
+		q.push(curr->left);
 	}
+	if(curr->right!=NULL)
+	{
+	q.push(curr->right);
+	}
+}
 }
 
 int main()
